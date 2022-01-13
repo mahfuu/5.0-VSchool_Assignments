@@ -39,6 +39,7 @@ function BountyCard(props) {
                         _id={_id}
                         submit={updateBounty}
                         btnText="Update"
+                        close={() => setEditToggle(prevToggle => !prevToggle)}
                     />
                     <button
                         onClick={() => setEditToggle(prevToggle => !prevToggle)}>

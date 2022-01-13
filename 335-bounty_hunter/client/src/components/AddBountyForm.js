@@ -1,7 +1,7 @@
 import React, {useState} from "react"
 
 function AddBountyForm(props) {
-    const { firstName, lastName, bountyPrice, guild, _id, submit, btnText } = props
+    const { firstName, lastName, bountyPrice, guild, _id, submit, btnText, close } = props
 
     const defaultInputs = {
         firstName: firstName || "",
@@ -27,6 +27,7 @@ function AddBountyForm(props) {
         e.preventDefault()
         submit(inputs, _id)
         setInputs(defaultInputs)
+        close()
     }
 
     return(
