@@ -1,13 +1,16 @@
 import React, {useState} from "react"
 
 function AddBountyForm(props) {
+    const { firstName, lastName, bountyPrice, guild, _id, submit, btnText } = props
+
     const defaultInputs = {
-        firstName: "",
-        lastName: "",
+        firstName: firstName || "",
+        lastName: lastName || "",
         living: true,
-        bountyPrice: "",
-        guild: ""
+        bountyPrice: bountyPrice || "",
+        guild: guild || ""
     }
+
     const [inputs, setInputs] = useState(defaultInputs)
 
     const handleChange = e => {
@@ -18,12 +21,11 @@ function AddBountyForm(props) {
                 [name]: type === "checkbox" ? checked : value
             }
         ))
-        console.log(inputs)
     }
 
     const handleSubmit = e => {
         e.preventDefault()
-        props.addBounty(inputs)
+        submit(inputs, _id)
         setInputs(defaultInputs)
     }
 
@@ -70,7 +72,7 @@ function AddBountyForm(props) {
                 />
                 Sith
             </label>
-            <button>Add Bounty</button>
+            <button>{btnText}</button>
         </form>
     )
 }

@@ -1,6 +1,29 @@
+body {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    background-color: blueviolet;
+}
+
 #root {
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
-    background-color: blue;
+    background-color: blueviolet;
+    color: whitesmoke
+}
+
+li {
+    border: grey 2px solid;
+    margin:10px;
+    border-radius: 3px;
+}
+
+li > * {
+    margin: 5px
+}
+
+.first-form {
+    display: flex;
+    margin: 40px
 }

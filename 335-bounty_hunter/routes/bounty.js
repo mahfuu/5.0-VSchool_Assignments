@@ -35,7 +35,7 @@ bountyRouter.delete("/:_id", (req, res, next) => {
     const bountyId = req.params._id
     const bountyIndex = bounties.findIndex(body => body._id === bountyId)
     bounties.splice(bountyIndex, 1)
-    res.send(`Bounty ID ${bountyId} was deleted.`)
+    res.send(`Bounty for ${req.params.firstName} ${req.params.lastName} was deleted.`)
 })
 
 //  Update One
