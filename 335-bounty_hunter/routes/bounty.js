@@ -8,8 +8,8 @@ const bounties = [
         firstName: "Boba",
         lastName: "Fett",
         living: true,
-        bountyPrice: 0,
-        guild: "",
+        bountyPrice: "",
+        guild: "Bounty Hunter",
         _id: uuid()
     }
 ]
@@ -27,7 +27,7 @@ bountyRouter.post("/", (req, res, next) => {
     const newBounty = req.body
     newBounty._id = uuid()
     bounties.push(newBounty)
-    res.send(`Succesfully added ${newBounty.firstName} ${newBounty.lastName} to the database!`)
+    res.send(newBounty)
 })
 
 //  Delete One
