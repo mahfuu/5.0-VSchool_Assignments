@@ -1,19 +1,19 @@
 const express = require("express")
 const inventoryRouter = express.Router()
-const Inventory = require("../models/inventory.js")
+const InventoryModel = require("../models/inventory.js")
 
 inventoryRouter.get("/", (req, res, next) => {
-    Inventory.find((err, inventory) => {
+    InventoryModel.find((err, part) => {
         if(err) {
             res.status(500)
             return next(err)
         }
-        return res.status(200).send(inventory)
+        return res.status(200).send(part)
     })
 })
 
 inventoryRouter.post("/", (req, res, next) => {
-    const newInventory = new Inventory(req.body)
+    const newInventory = new InventoryModel(req.body)
     newInventory.save((err, savedPart) => {
         if(err) {
             res.status(500)

@@ -6,7 +6,7 @@ const mongoose = require("mongoose")
 app.use(express.json())
 app.use(morgan("dev"))
 
-mongoose.connect("mongodb://localhost:27017/inventorydb",
+mongoose.connect("mongodb://localhost:27017/360-crud_store",
     {
         useNewUrlParser: true,
         useUnifiedTopology: true,
@@ -18,7 +18,7 @@ mongoose.connect("mongodb://localhost:27017/inventorydb",
 
 app.use("/inventory", require("./routes/inventoryRouter.js"))
 
-app.use((err, req, res, next) => {
+app.use((err, res) => {
     console.log(err)
     return res.send({errMsg: err.message})
 })
