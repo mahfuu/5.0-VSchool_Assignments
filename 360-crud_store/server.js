@@ -6,7 +6,7 @@ const mongoose = require("mongoose")
 app.use(express.json())
 app.use(morgan("dev"))
 
-mongoose.connect("mongodb://localhost:27017/360-crud_store",
+mongoose.connect("mongodb://localhost:27017/test",
     {
         useNewUrlParser: true,
         useUnifiedTopology: true,
