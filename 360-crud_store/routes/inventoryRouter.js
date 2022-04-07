@@ -23,4 +23,39 @@ inventoryRouter.post("/", (req, res, next) => {
     })
 })
 
+inventoryRouter.get("/:partID",  (req, res) => {
+    InventoryModel.findOne({_id: req.params.partID}, (err, part) => {
+        if(err){
+            res.status(500)
+            return next(err)
+        }
+        return res.status(200).send(part)
+    })
+})
+
+inventoryRouter.delete("/:partID",  (req, res) => {
+    InventoryModel.findOneAndDelete({_id: req.params.partID}, (err, deletedItem) => {
+        if(err){
+            res.status(500)
+            return next(err)
+        }
+        return res.status(200).send(`Successfully deleted item ${deletedItem.partName}`)
+    })
+})
+
+inventoryRouter.put("/:partID", (req, res, next) => {
+    InventoryModel.findOneAndUpdate(
+        { _id: req.params.partID },
+        req.body,
+        { new: true },
+        (err, newInventory) => {
+            if(err){
+                res.status(500)
+                return next(err)
+            }
+            return res.status(200).send(newInventory)
+        }
+    )
+})
+
 module.exports = inventoryRouter

@@ -44,7 +44,7 @@ function AddBountyForm(props) {
                 name="lastName"
                 value={inputs.lastName}
                 onChange={handleChange}
-                placeholder="First Name"
+                placeholder="Last Name"
             />
             <input
                 type="text"

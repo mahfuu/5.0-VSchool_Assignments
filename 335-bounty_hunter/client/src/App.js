@@ -34,8 +34,9 @@ function App(){
     }
 
     const updateBounty = (updates, id) => {
+        console.log("update bounty called")
         axios.put(`/bounty/${id}`, updates)
-            .then(res =>
+            .then(res => {
                 setBounties(prevBounties =>
                     prevBounties.map(item =>
                         item._id !== id ?
@@ -43,7 +44,8 @@ function App(){
                         res.data
                     )
                 )
-            )
+                console.log(res.data)
+            })
             .catch(err => console.log(err))
     }
 
